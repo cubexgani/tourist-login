@@ -1,0 +1,21 @@
+{
+	"Tourist Login": "Tourist Login",
+	"Mobile Number": "Mobile Number",
+	"Aadhaar Number": "Aadhaar Number",
+	"Email ID": "Email ID",
+	"Login": "Login",
+	"Back to Login": "Back to Login",
+	"Your ID Token": "Your ID Token",
+	"Token Details:": "Token Details:",
+	"Mobile": "Mobile",
+	"Aadhaar": "Aadhaar",
+	"Email": "Email",
+	"Must contain only digits": "Must contain only digits",
+	"Phone number must be exactly 10 digits": "Phone number must be exactly 10 digits",
+	"Mobile number is required": "Mobile number is required",
+	"Aadhaar number must be exactly 12 digits": "Aadhaar number must be exactly 12 digits",
+	"Aadhaar number is required": "Aadhaar number is required",
+	"Invalid email address": "Invalid email address",
+	"Email is required": "Email is required",
+	"Email is too long": "Email is too long"
+}

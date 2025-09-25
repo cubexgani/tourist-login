@@ -1,0 +1,21 @@
+{
+  "Tourist Login": "पर्यटक लॉगिन",
+  "Mobile Number": "मोबाइल नंबर",
+  "Aadhaar Number": "आधार नंबर",
+  "Email ID": "ईमेल आईडी",
+  "Login": "लॉगिन",
+  "Back to Login": "लॉगिन पर वापस जाएं",
+  "Your ID Token": "आपका आईडी टोकन",
+  "Token Details:": "टोकन विवरण:",
+  "Mobile": "मोबाइल",
+  "Aadhaar": "आधार",
+  "Email": "ईमेल",
+  "Must contain only digits": "केवल अंक होने चाहिए",
+  "Phone number must be exactly 10 digits": "फोन नंबर ठीक 10 अंकों का होना चाहिए",
+  "Mobile number is required": "मोबाइल नंबर आवश्यक है",
+  "Aadhaar number must be exactly 12 digits": "आधार नंबर ठीक 12 अंकों का होना चाहिए",
+  "Aadhaar number is required": "आधार नंबर आवश्यक है",
+  "Invalid email address": "अमान्य ईमेल पता",
+  "Email is required": "ईमेल आवश्यक है",
+  "Email is too long": "ईमेल बहुत लंबा है"
+}
