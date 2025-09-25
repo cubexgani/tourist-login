@@ -10,6 +10,7 @@ interface CustomInputProps {
   error?: string;
   keyboardType?: 'default' | 'numeric' | 'email-address';
   maxLength?: number;
+  translatedPlaceholder?: string;
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({
@@ -19,12 +20,13 @@ const CustomInput: React.FC<CustomInputProps> = ({
   error,
   keyboardType = 'default',
   maxLength,
+  translatedPlaceholder,
 }) => {
   return (
     <View style={styles.container}>
       <TextInput
         style={[styles.input, error ? styles.inputError : null]}
-        placeholder={placeholder}
+        placeholder={translatedPlaceholder || placeholder}
         placeholderTextColor={colors.textLight}
         value={value}
         onChangeText={onChangeText}

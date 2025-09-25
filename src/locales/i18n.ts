@@ -11,11 +11,22 @@ const resources = {
   hi: { translation: hi },
 };
 
-i18n.use(initReactI18next).init({
-  resources,
-  lng: 'en',
-  fallbackLng: 'en',
-  interpolation: { escapeValue: false },
-});
+i18n
+  .use(initReactI18next)
+  .init({
+    resources,
+    lng: 'en', // default language
+    fallbackLng: 'en',
+    
+    interpolation: {
+      escapeValue: false, // React already escapes values
+    },
+    
+    react: {
+      useSuspense: false,
+    },
+    
+    debug: __DEV__, // Enable debug mode in development
+  });
 
 export default i18n;

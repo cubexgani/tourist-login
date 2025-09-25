@@ -9,6 +9,8 @@ import { RootStackParamList } from '../types';
 import { colors } from '../styles/colors';
 import BackButton from '../components/BackButton';
 import { decryptId, generateId } from '../utils/encryption';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from '../components/LanguageSelector';
 
 type QRCodeScreenRouteProp = RouteProp<RootStackParamList, 'QRCode'>;
 type QRCodeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'QRCode'>;
@@ -20,10 +22,11 @@ interface Props {
 
 const QRCodeScreen: React.FC<Props> = ({ route, navigation }) => {
   const { userData } = route.params;
+    const { t } = useTranslation();
   
   // Create JSON string for QR code
   const qrData = generateId(userData.mobile, userData.aadhaar, userData.email);
-  console.log("Decrypted ID: ", decryptId(qrData))
+  console.log("Decrypted data: ", decryptId(qrData));
 
   const handleGoBack = () => {
     navigation.goBack();
@@ -31,11 +34,14 @@ const QRCodeScreen: React.FC<Props> = ({ route, navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <LanguageSelector />
+      </View>
       <View style={styles.content}>
         <BackButton onPress={handleGoBack} />
         
         <View style={styles.qrSection}>
-          <Text style={styles.title}>Your QR Token</Text>
+          <Text style={styles.title}> { t('Your ID Token') }</Text>
           
           <View style={styles.qrContainer}>
             <QRCode
@@ -47,10 +53,10 @@ const QRCodeScreen: React.FC<Props> = ({ route, navigation }) => {
           </View>
           
           <View style={styles.infoContainer}>
-            <Text style={styles.infoTitle}>Token Details:</Text>
-            <Text style={styles.infoText}>Mobile: {userData.mobile}</Text>
-            <Text style={styles.infoText}>Aadhaar: {userData.aadhaar}</Text>
-            <Text style={styles.infoText}>Email: {userData.email}</Text>
+            <Text style={styles.infoTitle}>{ t('Token Details:')}</Text>
+            <Text style={styles.infoText}>{ t('Mobile') + ':' } {userData.mobile}</Text>
+            <Text style={styles.infoText}>{ t('Aadhaar') + ':' } {userData.aadhaar}</Text>
+            <Text style={styles.infoText}>{ t('Email') + ':' } {userData.email}</Text>
           </View>
         </View>
       </View>
@@ -62,6 +68,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 24,
+    paddingTop: 10,
+    paddingBottom: 10,
   },
   content: {
     flex: 1,

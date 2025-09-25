@@ -11,10 +11,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { useTranslation } from 'react-i18next';
 import { RootStackParamList, ValidationErrors } from '../types';
 import { colors } from '../styles/colors';
 import { validateForm, hasErrors } from '../utils/validation';
 import CustomInput from '../components/CustomInput';
+import LanguageSelector from '../components/LanguageSelector';
 
 type LoginScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Login'>;
 
@@ -23,13 +25,14 @@ interface Props {
 }
 
 const LoginScreen: React.FC<Props> = ({ navigation }) => {
+  const { t } = useTranslation();
   const [mobile, setMobile] = useState('');
   const [aadhaar, setAadhaar] = useState('');
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState<ValidationErrors>({});
 
   const handleLogin = () => {
-    const validationErrors = validateForm(mobile, aadhaar, email);
+    const validationErrors = validateForm(mobile, aadhaar, email, t);
     setErrors(validationErrors);
 
     if (!hasErrors(validationErrors)) {
@@ -41,18 +44,23 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <LanguageSelector />
+      </View>
+      
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.keyboardAvoid}
       >
         <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
           <View style={styles.content}>
-            <Text style={styles.title}>Tourist Login</Text>
-            <Text style={styles.subtitle}>Please enter your details to continue</Text>
+            <Text style={styles.title}>{t('Tourist Login')}</Text>
+            <Text style={styles.subtitle}>{t('Please enter your details to continue')}</Text>
 
             <View style={styles.form}>
               <CustomInput
                 placeholder="Mobile Number"
+                translatedPlaceholder={t('Mobile Number')}
                 value={mobile}
                 onChangeText={setMobile}
                 error={errors.mobile}
@@ -62,6 +70,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 
               <CustomInput
                 placeholder="Aadhaar Number"
+                translatedPlaceholder={t('Aadhaar Number')}
                 value={aadhaar}
                 onChangeText={setAadhaar}
                 error={errors.aadhaar}
@@ -71,6 +80,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
 
               <CustomInput
                 placeholder="Email ID"
+                translatedPlaceholder={t('Email ID')}
                 value={email}
                 onChangeText={setEmail}
                 error={errors.email}
@@ -82,7 +92,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 onPress={handleLogin}
                 activeOpacity={0.8}
               >
-                <Text style={styles.loginButtonText}>Login</Text>
+                <Text style={styles.loginButtonText}>{t('Login')}</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -97,6 +107,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 24,
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
   keyboardAvoid: {
     flex: 1,
   },
@@ -106,7 +123,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 24,
-    paddingTop: 40,
+    paddingTop: 20,
     justifyContent: 'center',
   },
   title: {

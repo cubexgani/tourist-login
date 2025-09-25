@@ -1,6 +1,7 @@
 // src/components/BackButton.tsx
 import React from 'react';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { colors } from '../styles/colors';
 
 interface BackButtonProps {
@@ -8,11 +9,13 @@ interface BackButtonProps {
 }
 
 const BackButton: React.FC<BackButtonProps> = ({ onPress }) => {
+  const { t } = useTranslation();
+
   return (
     <TouchableOpacity style={styles.container} onPress={onPress} activeOpacity={0.7}>
       <View style={styles.content}>
         <Text style={styles.arrow}>←</Text>
-        <Text style={styles.text}>Back to login</Text>
+        <Text style={styles.text}>{t('Back to Login')}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -22,8 +25,6 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: 'flex-start',
     marginBottom: 30,
-    marginLeft: 10,
-    marginTop: 30,
   },
   content: {
     flexDirection: 'row',
