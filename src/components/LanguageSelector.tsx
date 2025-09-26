@@ -35,6 +35,7 @@ import { colors } from '../styles/colors';
 interface Language {
   code: string; // Language code used by i18next (e.g., 'en', 'bn', 'hi')
   label: string; // Display label shown in the UI (e.g., 'EN', 'BN', 'HI')
+  description: string;  // Display description in the dropdown (e.g. 'English', 'Bengali', 'Hindi')
 }
 
 /**
@@ -42,9 +43,9 @@ interface Language {
  * Add new languages here to extend multilingual support
  */
 const languages: Language[] = [
-  { code: 'en', label: 'EN' }, // English
-  { code: 'bn', label: 'BN' }, // Bengali
-  { code: 'hi', label: 'HI' }, // Hindi
+  { code: 'en', label: 'EN', description: 'English' }, // English
+  { code: 'bn', label: 'BN', description: 'Bengali' }, // Bengali
+  { code: 'hi', label: 'HI', description: 'Hindi' }, // Hindi
 ];
 
 /**

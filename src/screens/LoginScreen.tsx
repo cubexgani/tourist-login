@@ -12,7 +12,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
-import { RootStackParamList, ValidationErrors } from '../types';
+import { RootStackParamList, ValidationErrorKeys } from '../types';
 import { colors } from '../styles/colors';
 import { validateForm, hasErrors } from '../utils/validation';
 import CustomInput from '../components/CustomInput';
@@ -29,10 +29,10 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
   const [mobile, setMobile] = useState('');
   const [aadhaar, setAadhaar] = useState('');
   const [email, setEmail] = useState('');
-  const [errors, setErrors] = useState<ValidationErrors>({});
+  const [errors, setErrors] = useState<ValidationErrorKeys>({});
 
   const handleLogin = () => {
-    const validationErrors = validateForm(mobile, aadhaar, email, t);
+    const validationErrors = validateForm(mobile, aadhaar, email);
     setErrors(validationErrors);
 
     if (!hasErrors(validationErrors)) {
@@ -63,7 +63,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 translatedPlaceholder={t('Mobile Number')}
                 value={mobile}
                 onChangeText={setMobile}
-                error={errors.mobile}
+                error={errors.mobile ? t(errors.mobile) : undefined}
                 keyboardType="numeric"
                 maxLength={10}
               />
@@ -73,7 +73,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 translatedPlaceholder={t('Aadhaar Number')}
                 value={aadhaar}
                 onChangeText={setAadhaar}
-                error={errors.aadhaar}
+                error={errors.aadhaar ? t(errors.aadhaar) : undefined}
                 keyboardType="numeric"
                 maxLength={12}
               />
@@ -83,7 +83,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
                 translatedPlaceholder={t('Email ID')}
                 value={email}
                 onChangeText={setEmail}
-                error={errors.email}
+                error={errors.email ? t(errors.email) : undefined}
                 keyboardType="email-address"
               />
 

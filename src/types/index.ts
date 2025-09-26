@@ -1,4 +1,3 @@
-// src/types/index.ts
 export interface UserData {
   mobile: string;
   aadhaar: string;
@@ -6,6 +5,12 @@ export interface UserData {
 }
 
 export interface ValidationErrors {
+  mobile?: string;
+  aadhaar?: string;
+  email?: string;
+}
+
+export interface ValidationErrorKeys {
   mobile?: string;
   aadhaar?: string;
   email?: string;
