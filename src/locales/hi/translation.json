@@ -12,7 +12,7 @@
   "Aadhaar": "आधार",
   "Email": "ईमेल",
   "Must contain only digits": "केवल अंक होने चाहिए",
-  "Phone number must be exactly 10 digits": "फोन नंबर ठीक 10 अंकों का होना चाहिए",
+  "Mobile number must be exactly 10 digits": "मोबाइल नंबर ठीक 10 अंकों का होना चाहिए",
   "Mobile number is required": "मोबाइल नंबर आवश्यक है",
   "Aadhaar number must be exactly 12 digits": "आधार नंबर ठीक 12 अंकों का होना चाहिए",
   "Aadhaar number is required": "आधार नंबर आवश्यक है",

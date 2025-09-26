@@ -15,12 +15,13 @@ import { colors } from '../styles/colors';
 interface Language {
   code: string;
   label: string;
+  description: string;
 }
 
 const languages: Language[] = [
-  { code: 'en', label: 'EN' },
-  { code: 'bn', label: 'BN' },
-  { code: 'hi', label: 'HI' },
+  { code: 'en', label: 'EN', description: 'English' },
+  { code: 'bn', label: 'BN', description: 'Bengali' },
+  { code: 'hi', label: 'HI', description: 'Hindi' },
 ];
 
 const LanguageSelector: React.FC = () => {
@@ -77,7 +78,7 @@ const LanguageSelector: React.FC = () => {
                     currentLanguage.code === language.code && styles.selectedText,
                   ]}
                 >
-                  {language.label}
+                  {language.description}
                 </Text>
               </TouchableOpacity>
             ))}

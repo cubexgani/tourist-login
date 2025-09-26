@@ -12,7 +12,7 @@
 	"Aadhaar": "Aadhaar",
 	"Email": "Email",
 	"Must contain only digits": "Must contain only digits",
-	"Phone number must be exactly 10 digits": "Phone number must be exactly 10 digits",
+	"Mobile number must be exactly 10 digits": "Mobile number must be exactly 10 digits",
 	"Mobile number is required": "Mobile number is required",
 	"Aadhaar number must be exactly 12 digits": "Aadhaar number must be exactly 12 digits",
 	"Aadhaar number is required": "Aadhaar number is required",
