@@ -16,9 +16,9 @@ To start the Metro dev server, run the following command from the root of your R
 ```sh
 # Using npm
 npm start
+```
 
-
-## Step 2: Build and run your app
+## Step 3: Build and run your app
 
 With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
 
@@ -29,6 +29,7 @@ With Metro running, open a new terminal window/pane from the root of your React 
 npm run android
 ```
 
+Connect your phone using USB, and enable USB debugging in the phone settings.
 
 If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
